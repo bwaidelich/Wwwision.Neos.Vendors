@@ -10,7 +10,7 @@
           label: 'Vendor details'
 
    # vendor nodes don't have a property "title" - we render the title of the bound vendor instance instead (in backend and menus)
-  label: '${node.properties.vendor ? node.properties.vendor : node.name}'
+  label: '${node.properties.vendor ? node.properties.vendor.name : node.name}'
 
   properties:
     'title':
@@ -19,7 +19,7 @@
     'titleOverride':
       ui: ~
     'vendor':
-#      type: 'Wwwision\Neos\Vendors\Domain\Model\Vendor'
+      type: 'Wwwision\Neos\Vendors\Domain\Model\Vendor'
       ui: ~
 
  # a simple plugin that allows for managing vendors
