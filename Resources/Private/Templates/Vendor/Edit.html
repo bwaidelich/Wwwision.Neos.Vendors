@@ -1,0 +1,8 @@
+<div>
+	<f:flashMessages />
+	<f:form action="delete" method="post" class="form-horizontal clearfix" object="{vendor}" objectName="vendor">
+		<f:form.submit value="Remove Vendor" class="btn btn-danger pull-right" />
+	</f:form>
+	<h2>Edit Vendor "{vendor.name}"</h2>
+	<f:render partial="Forms/Vendor" arguments="{action: 'update', vendor: vendor}" />
+</div>

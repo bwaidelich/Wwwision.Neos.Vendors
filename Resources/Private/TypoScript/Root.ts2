@@ -1,0 +1,16 @@
+include: resource://TYPO3.NeosDemoTypo3Org/Private/TypoScript/Root.ts2
+include: NodeTypes/*
+
+root.vendor {
+	@position = 'start'
+	condition = ${q(node).is('[instanceof Wwwision.Neos.Vendors:Vendor]')}
+	renderPath = '/vendor'
+}
+
+// Special layout for vendor nodes
+vendor < page {
+	body.content.main = TYPO3.TypoScript:Template {
+		templatePath = 'resource://Wwwision.Neos.Vendors/Private/Templates/Page/Vendor.html'
+		vendor = ${q(node).property('vendor')}
+	}
+}

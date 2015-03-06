@@ -1,0 +1,14 @@
+{
+    "name": "wwwision/neos-vendors",
+    "type": "typo3-flow-plugin",
+    "description": "Simple example of a 'vendor management' plugin with sync to the TYPO3CR",
+    "require": {
+        "typo3/neosdemotypo3org": "dev-master",
+        "wwwision/neos-frontendlogin": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Wwwision\\Neos\\Vendors": "Classes"
+        }
+    }
+}

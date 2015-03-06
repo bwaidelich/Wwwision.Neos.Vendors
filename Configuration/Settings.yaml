@@ -1,0 +1,21 @@
+Wwwision:
+  Neos:
+    Vendors:
+       # The absolute node path (without trailing slash!) to the document node that should contain vendor nodes (see VendorNodeService)
+      vendorsParentNodePath: '/sites/neosdemotypo3org/vendors'
+
+TYPO3:
+
+  Flow:
+    persistence:
+      doctrine:
+        eventListeners:
+           # track changes of vendor entities to mirror them into the TYPO3CR via the VendorNodeService (see VendorEventListener)
+          'Wwwision\Neos\Vendors\Domain\EventListener\VendorEventListener':
+            events: ['prePersist', 'preUpdate', 'preRemove']
+            listener: 'Wwwision\Neos\Vendors\Domain\EventListener\VendorEventListener'
+
+  Neos:
+    typoScript:
+      autoInclude:
+        'Wwwision.Neos.Vendors': TRUE

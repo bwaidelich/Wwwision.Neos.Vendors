@@ -1,0 +1,11 @@
+<f:if condition="{vendor}" else="<em>No vendor is linked to that node!</em>">
+	<h1>VENDOR &quot;{vendor.name}&quot;</h1>
+	<dl>
+		<dt>Vendor owner:</dt>
+		<dd>{vendor.owner.name}</dd>
+		<f:if condition="{false}">
+			<dt>Vendor homepage:</dt>
+			<dd><f:link.external uri="{vendor.url}">{vendor.url}</f:link.external></dd>
+		</f:if>
+	</dl>
+</f:if>

@@ -1,0 +1,31 @@
+<div>
+	<f:security.ifAccess privilegeTarget="TYPO3.Neos:Backend.GeneralAccess">
+		<f:then>
+			<p>The Vendor Management is disabled in backend mode.</p>
+		</f:then>
+		<f:else>
+			<f:flashMessages />
+			<h2>My Vendors</h2>
+			<f:if condition="{vendors}">
+				<f:then>
+					<table>
+						<tr>
+							<th>Vendor</th>
+							<th>Options</th>
+						</tr>
+						<f:for each="{vendors}" as="vendor">
+							<tr>
+								<td>{vendor.name}</td>
+								<td><f:link.action action="edit" arguments="{vendor: vendor}">Edit</f:link.action>
+							</tr>
+						</f:for>
+					</table>
+				</f:then>
+				<f:else>
+					<p><em>There are no vendors associated with your user.</em></p>
+				</f:else>
+			</f:if>
+			<p><f:link.action action="new">Add vendor</f:link.action></p>
+		</f:else>
+	</f:security.ifAccess>
+</div>

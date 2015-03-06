@@ -1,0 +1,32 @@
+privilegeTargets:
+
+  'TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+
+      # Covers all actions of the VendorController that is used in the "VendorAdministration" plugin
+    'Wwwision.Neos.Vendors:VendorAdministration':
+      matcher: 'method(Wwwision\Neos\Vendors\Controller\VendorController->(?<!initialize).*Action())'
+
+      # Covers calls to VendorRepository::add/update/remove() with a vendor instance that is not bound to the currently authenticated user!
+    'Wwwision.Neos.Vendors:ManipulatingForeignVendor':
+      matcher: 'method(Wwwision\Neos\Vendors\Domain\Repository\VendorRepository->(add|update|remove)(object.owner != current.frontendUserService.currentUser))'
+
+roles:
+
+  'Wwwision.Neos.FrontendLogin:User':
+    privileges:
+      -
+         # Grant "frontend users" access to the "VendorAdministration" plugin
+        privilegeTarget: 'Wwwision.Neos.Vendors:VendorAdministration'
+        permission: GRANT
+
+
+  'TYPO3.Neos:Editor':
+    privileges:
+      -
+          # Grant "backend users" access to the "VendorAdministration" plugin
+        privilegeTarget: 'Wwwision.Neos.Vendors:VendorAdministration'
+        permission: GRANT
+      -
+          # Grant "backend users" to change vendor instances (just for demonstration purposes, that feature is currently not implemented)
+        privilegeTarget: 'Wwwision.Neos.Vendors:ManipulatingForeignVendor'
+        permission: GRANT

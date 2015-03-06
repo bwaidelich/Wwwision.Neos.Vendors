@@ -1,0 +1,4 @@
+prototype(Wwwision.Neos.Vendors:Administration) < prototype(Plugin) {
+	package = 'Wwwision.Neos.Vendors'
+	controller = 'Vendor'
+}

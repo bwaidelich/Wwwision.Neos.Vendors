@@ -1,0 +1,23 @@
+<f:render partial="Forms/Errors" />
+<f:form action="{action}" method="post" class="form-horizontal clearfix" object="{vendor}" objectName="vendor">
+	<f:if condition="{action} == 'create'">
+		<f:form.hidden property="owner" value="{currentUser}" />
+	</f:if>
+	<div class="form-group">
+		<label for="name" class="col-lg-4 control-label">Name:</label>
+		<div class="col-lg-8">
+			<f:form.textfield property="name" id="name" required="required" class="form-control" placeholder="Vendor name" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="url" class="col-lg-4 control-label">URL:</label>
+		<div class="col-lg-8">
+			<f:form.textfield property="url" id="url" type="url" class="form-control" placeholder="Vendor homepage" />
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-8 pull-right">
+			<f:form.submit value="{f:if(condition: '{action} == \'create\'', then: 'Create', else: 'Update')} Vendor" class="btn btn-primary" />
+		</div>
+	</div>
+</f:form>
