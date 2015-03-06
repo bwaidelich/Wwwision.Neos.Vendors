@@ -11,7 +11,7 @@ This package is for testing & demonstration purposes only!
 How-To:
 -------
 
-* This package requires ``Wwwision.Neos.FrontendLogin`` (https://github.com/bwaidelich/Wwwision.Neos.FrontendLogin) and
+**NOTE:** This package requires ``Wwwision.Neos.FrontendLogin`` (https://github.com/bwaidelich/Wwwision.Neos.FrontendLogin) and
 ``TYPO3.NeosDemoTypo3Org`` (https://git.typo3.org/Packages/NeosDemoTypo3Org.git) - install those first if not done
 already
  
@@ -25,3 +25,8 @@ already
 
 Now, if you login as FE user, navigate to ``/en/members/my-vendors.html`` and create a new vendor this should create a
 new public "vendor page" under ``/en/vendors/<vendor-name>.html``.
+
+Known issues:
+-------------
+
+It's currently not possible to create a "vendor page" (or change the owner) via the Neos backend. This is due to some limits of Neos we are currently trying to fix for the 2.0 release!
