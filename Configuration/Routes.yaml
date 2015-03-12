@@ -1,0 +1,55 @@
+#                                                                        #
+# Default subroutes configuration for the Wwwision.Neos.Vendors package  #
+#                                                                        #
+
+
+# Activate those routes by adding following *to the top* of your global
+# routing configuration located at /Configuration/Routes.yaml (and adjust
+# the "defaultUriSuffix" and "vendorPath" variables if needed
+#
+#-
+#  name: 'Vendors'
+#  uriPattern: '<WwwisionNeosVendorsSubroutes>'
+#  subRoutes:
+#    'WwwisionNeosVendorsSubroutes':
+#      package: 'Wwwision.Neos.Vendors'
+#      variables:
+#        'defaultUriSuffix': '.html'
+#        'vendorPath': '/sites/neosdemotypo3org/vendors/'
+
+
+-
+  name:  'Single Vendor actions'
+  uriPattern: '{node}/vendor/{--wwwision_neos_vendors-administration.vendor}/_{--wwwision_neos_vendors-administration.@action}<defaultUriSuffix>'
+  defaults:
+    '@package':    'TYPO3.Neos'
+    '@controller': 'Frontend\Node'
+    '@action':     'show'
+    '@format':     'html'
+    'node':        '<vendorPath>'
+    '--wwwision_neos_vendors-administration':
+      '@package':    'Wwwision.Neos.Vendors'
+      '@controller': 'Vendor'
+  routeParts:
+    'node':
+      handler:     'TYPO3\Neos\Routing\FrontendNodeRoutePartHandlerInterface'
+    '--wwwision_neos_vendors-administration.vendor':
+      objectType:  'Wwwision\Neos\Vendors\Domain\Model\Vendor'
+      uriPattern: '{name}'
+
+-
+  name:  'New Vendor'
+  uriPattern: '{node}/_new<defaultUriSuffix>'
+  defaults:
+    '@package':    'TYPO3.Neos'
+    '@controller': 'Frontend\Node'
+    '@action':     'show'
+    '@format':     'html'
+    'node':        '<vendorPath>'
+    '--wwwision_neos_vendors-administration':
+      '@package':    'Wwwision.Neos.Vendors'
+      '@controller': 'Vendor'
+      '@action':     'new'
+  routeParts:
+    'node':
+      handler:     'TYPO3\Neos\Routing\FrontendNodeRoutePartHandlerInterface'
