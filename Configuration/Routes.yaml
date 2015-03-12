@@ -5,7 +5,7 @@
 
 # Activate those routes by adding following *to the top* of your global
 # routing configuration located at /Configuration/Routes.yaml (and adjust
-# the "defaultUriSuffix" and "vendorPath" variables if needed
+# the "defaultUriSuffix" variable if needed):
 #
 #-
 #  name: 'Vendors'
@@ -15,7 +15,6 @@
 #      package: 'Wwwision.Neos.Vendors'
 #      variables:
 #        'defaultUriSuffix': '.html'
-#        'vendorPath': '/sites/neosdemotypo3org/vendors/'
 
 
 -
@@ -26,7 +25,6 @@
     '@controller': 'Frontend\Node'
     '@action':     'show'
     '@format':     'html'
-    'node':        '<vendorPath>'
     '--wwwision_neos_vendors-administration':
       '@package':    'Wwwision.Neos.Vendors'
       '@controller': 'Vendor'
@@ -45,7 +43,6 @@
     '@controller': 'Frontend\Node'
     '@action':     'show'
     '@format':     'html'
-    'node':        '<vendorPath>'
     '--wwwision_neos_vendors-administration':
       '@package':    'Wwwision.Neos.Vendors'
       '@controller': 'Vendor'
